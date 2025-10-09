@@ -6,9 +6,9 @@ SHELL ["/bin/bash", "-c"]
 
 # Install necessary global packages
 RUN apt update && apt install curl wget -y
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN apt-get -y install ./google-chrome-stable_current_amd64.deb
-
+RUN curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt-get install -y ./google-chrome-stable_current_amd64.deb
+RUN rm google-chrome-stable_current_amd64.deb 
 # make nvm and node available on shell reload
 ENTRYPOINT ["bash", "-c", "source $NVM_DIR/nvm.sh && exec \"$@\"", "--"]
 
@@ -23,7 +23,6 @@ RUN chown -R ubuntu:ubuntu .
 RUN rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 
 # run as non-root user
-#RUN useradd -u 1000 -ms /bin/bash test
 USER ubuntu
 
 # Install nvm and node for user
