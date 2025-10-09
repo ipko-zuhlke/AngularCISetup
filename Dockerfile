@@ -1,5 +1,5 @@
 FROM ubuntu:24.04
-ARG NODE_VERSION=24
+ARG NODE_VERSION=lts/jod
 
 SHELL ["/bin/bash", "-c"]
 
