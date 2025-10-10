@@ -113,6 +113,9 @@
   "cli": {
     "schematicCollections": [
       "angular-eslint"
-    ]
+    ],
+    "cache": {
+      "path": "./out/angularCache"
+    }
   }
 }
